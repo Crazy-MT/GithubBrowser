@@ -16,29 +16,37 @@
 
 package com.mt.githubbrowser.model
 
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
 import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.Index
 import com.google.gson.annotations.SerializedName
+import com.mt.githubbrowser.BR
 
 /**
  * Using name/owner_login as primary key instead of id since name/owner_login is always available
  * vs id is not.
  */
-data class Repo(
-    val id: Int,
+class Repo() : BaseObservable(){
+    var id: Int? = 0
+
     @field:SerializedName("name")
-    val name: String,
+    var name: String? = null
+        @Bindable
+        get() = field
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.name)
+        }
+
     @field:SerializedName("full_name")
-    val fullName: String,
+    var fullName: String? = null
     @field:SerializedName("description")
-    val description: String?,
+    var description: String? = null
     @field:SerializedName("owner")
     @field:Embedded(prefix = "owner_")
-    val owner: Owner?,
+    var owner: Owner? = null
     @field:SerializedName("stargazers_count")
-    val stars: Int
-) {
+    var stars: Int = 0
 
     data class Owner(
         @field:SerializedName("login")

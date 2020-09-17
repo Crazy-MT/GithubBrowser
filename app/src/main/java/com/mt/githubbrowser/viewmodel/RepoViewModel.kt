@@ -2,7 +2,6 @@ package com.mt.githubbrowser.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mt.githubbrowser.model.Repo
@@ -21,18 +20,19 @@ import kotlinx.coroutines.launch
  */
 class RepoViewModel : ViewModel() {
     val source = SearchSource()
-    var repoSearchResp : MutableLiveData<RepoSearchResponse> = MutableLiveData<RepoSearchResponse>()
+    var repoSearchResp : MutableLiveData<List<Repo>> = MutableLiveData<List<Repo>>()
+
     fun search(query: String) {
         viewModelScope.launch {
-//            source.searchRepo(query)
             runCatching {
-                repoSearchResp.postValue(source.searchRepo(query))
-                Log.e(TAG, ": MTMTMT " + Thread.currentThread().name);
+                repoSearchResp.postValue(source.searchRepo(query).items)
+//                Log.e(TAG, ": MTMTMT " + Thread.currentThread().name);
             }.onSuccess {
-                Log.e(TAG, ": MTMTMT " + "success" + Thread.currentThread().name);
+//                Log.e(TAG, ": MTMTMT " + "success" + Thread.currentThread().name);
             }.onFailure {
-                repoSearchResp.postValue(RepoSearchResponse(1, arrayListOf(Repo(1, "1", "22", "true", null, 1))))
+//                repoSearchResp.postValue(RepoSearchResponse(1, 1, arrayListOf(Repo(1, "1", "22", "true", null, 1))))
                 Log.e(TAG, ": MTMTMT " + it.message + Thread.currentThread().name);
+//                repoSearchResp.value = arrayListOf(Repo(1, "12", "22", "true", null, 1))
             }
         }
     }

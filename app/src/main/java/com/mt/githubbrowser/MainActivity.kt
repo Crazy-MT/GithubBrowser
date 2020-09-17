@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     var binding: ActivityMainBinding? = null
     var viewModel: RepoViewModel = RepoViewModel()
-    var adapter: RepoItemAdapter = RepoItemAdapter()
+    var adapter: RepoItemAdapter? = null
 
     companion object {
         private const val TAG = "MainActivity"
@@ -40,11 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRepoRecyclerView() {
+        adapter = RepoItemAdapter(viewModel.repoSearchResp.value)
         binding?.repoList?.adapter = adapter
         viewModel.repoSearchResp.observe(this, {
-            Log.e(TAG, ": MTMTMT " + it.total)
-            adapter.repos = it.items
-            adapter.notifyDataSetChanged()
+            adapter?.repos = it
+            adapter?.notifyDataSetChanged()
         })
     }
 
