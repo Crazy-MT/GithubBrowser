@@ -1,0 +1,3 @@
+include ':lib_common'
+include ':app'
+rootProject.name = "GithubBrowser"
