@@ -7,13 +7,6 @@ import com.mt.githubbrowser.api.ApiResponse
 import com.mt.githubbrowser.model.RepoSearchResponse
 import retrofit2.HttpException
 import java.io.IOException
-
-/**
- *  @author : MaoTong
- *  @date : 2020/9/16 18:01
- *  description :
- */
-
 /**
  * ================================================
  *  @author : MaoTong

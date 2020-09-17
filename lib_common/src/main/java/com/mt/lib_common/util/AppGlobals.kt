@@ -6,12 +6,6 @@ import java.util.*
 import kotlin.math.acos
 
 /**
- *  @author : MaoTong
- *  @date : 2020/9/16 10:44
- *  description :
- */
-
-/**
  * ================================================
  *  @author : MaoTong
  *  @date : 2020/9/16 10:44

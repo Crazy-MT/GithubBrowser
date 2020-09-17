@@ -14,12 +14,6 @@ import retrofit2.http.Query
 import kotlin.math.log
 
 /**
- *  @author : MaoTong
- *  @date : 2020/9/16 17:43
- *  description :
- */
-
-/**
  * ================================================
  *  @author : MaoTong
  *  @date : 2020/9/16 17:43

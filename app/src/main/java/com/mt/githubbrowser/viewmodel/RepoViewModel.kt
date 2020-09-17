@@ -11,12 +11,6 @@ import com.mt.githubbrowser.repository.SearchSource
 import kotlinx.coroutines.launch
 
 /**
- *  @author : MaoTong
- *  @date : 2020/9/16 16:06
- *  description :
- */
-
-/**
  * ================================================
  *  @author : MaoTong
  *  @date : 2020/9/16 16:06
