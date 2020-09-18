@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="showFullName"
+            type="boolean" />
+        <variable
             name="repo"
             type="com.mt.githubbrowser.model.Repo" />
     </data>
@@ -25,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@{repo.name}"
+                android:text="@{showFullName ? repo.fullName : repo.name}"
                 app:layout_constraintBaseline_toBaselineOf="@+id/star"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/star"

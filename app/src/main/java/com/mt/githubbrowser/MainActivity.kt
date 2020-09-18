@@ -40,7 +40,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRepoRecyclerView() {
-        adapter = RepoItemAdapter()
+        adapter = RepoItemAdapter(true) {
+            repo -> Log.e(TAG, ": MTMTMT " + repo.name)
+        }
+
         binding?.repoList?.adapter = adapter
         viewModel.repoSearchResp.observe(this, {
             adapter?.submitList(it)

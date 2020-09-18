@@ -23,7 +23,10 @@ import com.mt.githubbrowser.model.Repo
  * <a href="https://github.com/Crazy-MT">Follow me</a>
  * ================================================
  */
-class RepoItemAdapter() :
+class RepoItemAdapter(
+    private val showFullName: Boolean,
+    private val repoClickCallback: ((Repo) -> Unit)?
+) :
     DataBoundListAdapter<Repo, ItemRepoBinding>(
         object : DiffUtil.ItemCallback<Repo>() {
             override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean {
@@ -39,12 +42,20 @@ class RepoItemAdapter() :
     ) {
 
     override fun createBinding(parent: ViewGroup): ItemRepoBinding {
-        return DataBindingUtil.inflate(
+
+        val binding =  DataBindingUtil.inflate<ItemRepoBinding>(
             LayoutInflater.from(parent.context),
             R.layout.item_repo,
             parent,
             false
         )
+        binding.showFullName = showFullName
+        binding.root.setOnClickListener{
+            binding.repo?.let {
+                repoClickCallback?.invoke(it)
+            }
+        }
+        return binding
     }
 
     override fun bind(binding: ItemRepoBinding, item: Repo) {
