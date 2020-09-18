@@ -40,11 +40,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRepoRecyclerView() {
-        adapter = RepoItemAdapter(viewModel.repoSearchResp.value)
+        adapter = RepoItemAdapter()
         binding?.repoList?.adapter = adapter
         viewModel.repoSearchResp.observe(this, {
-            adapter?.repos = it
-            adapter?.notifyDataSetChanged()
+            adapter?.submitList(it)
         })
     }
 

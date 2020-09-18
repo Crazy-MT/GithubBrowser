@@ -40,7 +40,7 @@
                 android:layout_marginTop="8dp"
                 android:drawableStart="@android:drawable/btn_star"
                 android:gravity="center"
-                android:text="11"
+                android:text="@{String.valueOf(repo.stars)}"
                 app:layout_constraintBottom_toTopOf="@+id/desc"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
