@@ -22,7 +22,30 @@ class RepoViewModel : ViewModel() {
     var repoSearchResp: MutableLiveData<List<Repo>> = MutableLiveData<List<Repo>>()
 
     init {
-        repoSearchResp.postValue(arrayListOf(Repo(1, "name", "22", "desc", null, 1))
+        repoSearchResp.postValue(arrayListOf(Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1),
+            Repo(1, "name", "22", "desc", null, 1))
         )
     }
 

@@ -46,7 +46,16 @@ class MainActivity : AppCompatActivity() {
 
         binding?.repoList?.adapter = adapter
         viewModel.repoSearchResp.observe(this, {
+            binding?.loading = false
             adapter?.submitList(it)
+        })
+
+        binding?.repoList?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                val lastPosition = layoutManager.findLastVisibleItemPosition()
+                binding?.loadingMore = lastPosition == adapter?.itemCount!! - 1
+            }
         })
     }
 
@@ -75,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         dismissKeyboard(v.windowToken)
         // viewModel 查询
         viewModel.search(query)
+        binding?.loading = true
     }
 
     private fun dismissKeyboard(windowToken: IBinder?) {
