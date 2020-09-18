@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mt.githubbrowser.model.Repo
-import com.mt.githubbrowser.model.RepoSearchResponse
 import com.mt.githubbrowser.repository.SearchSource
 import kotlinx.coroutines.launch
 
@@ -20,7 +19,12 @@ import kotlinx.coroutines.launch
  */
 class RepoViewModel : ViewModel() {
     val source = SearchSource()
-    var repoSearchResp : MutableLiveData<List<Repo>> = MutableLiveData<List<Repo>>()
+    var repoSearchResp: MutableLiveData<List<Repo>> = MutableLiveData<List<Repo>>()
+
+    init {
+        repoSearchResp.postValue(arrayListOf(Repo(1, "name", "22", "desc", null, 1))
+        )
+    }
 
     fun search(query: String) {
         viewModelScope.launch {

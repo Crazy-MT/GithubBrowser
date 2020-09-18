@@ -26,7 +26,7 @@ import com.mt.githubbrowser.BR
  * Using name/owner_login as primary key instead of id since name/owner_login is always available
  * vs id is not.
  */
-class Repo() : BaseObservable(){
+class Repo(i: Int, s: String, s1: String, s2: String, nothing: Nothing?, i1: Int) : BaseObservable(){
     var id: Int? = 0
 
     @field:SerializedName("name")
@@ -47,6 +47,12 @@ class Repo() : BaseObservable(){
     var owner: Owner? = null
     @field:SerializedName("stargazers_count")
     var stars: Int = 0
+
+    init {
+        name = s1
+        description = s2
+        stars = i1
+    }
 
     data class Owner(
         @field:SerializedName("login")
